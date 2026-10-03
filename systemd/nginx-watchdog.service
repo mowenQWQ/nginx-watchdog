@@ -1,0 +1,10 @@
+[Unit]
+Description=nginx watchdog — restart nginx if it has died
+Documentation=https://github.com/mowenQWQ/nginx-watchdog
+After=network.target
+
+[Service]
+Type=oneshot
+ExecStart=/usr/local/bin/nginx-watchdog.sh
+# 允许覆盖探测参数：可在 /etc/default/nginx-watchdog 或 drop-in 里设置
+EnvironmentFile=-/etc/default/nginx-watchdog
